@@ -11,11 +11,36 @@ There are two ways of specifying the credentials: password, keys. (See next sect
 
 ## Usage
 
+This charm works for both LXD and K8s. By default, it will work on LXD. To make it work in K8s, just change the following in the `metadata.yaml`
+
+```yaml
+series:
+# - focal
+# - bionic
+# - xenial
+ - kubernetes
+ deployment:
+    mode: operator
+```
+
 ### Prepare the environment:
+
+- LXD:
 
 ```bash
 sudo snap install juju --classic
 juju bootstrap lxd
+juju add-model test
+```
+
+- K8s:
+
+```bash
+sudo snap install juju --classic
+sudo snap install microk8s --classic
+sudo microk8s.status --wait-ready
+sudo microk8s.enable storage dns
+juju bootstrap microk8s
 juju add-model test
 ```
 

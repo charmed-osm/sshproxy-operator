@@ -9,6 +9,9 @@ series:
   - focal
   - bionic
   - xenial
+# - kubernetes
+# deployment:
+#    mode: operator
 peers:
   proxypeer:
     interface: proxypeer
