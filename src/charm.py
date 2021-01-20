@@ -61,6 +61,7 @@ class SshproxyCharm(SSHProxyCharm):
             filename = event.params["filename"]
             proxy = self.get_ssh_proxy()
             stdout, stderr = proxy.run("touch {}".format(filename))
+            proxy.scp("/etc/lsb-release", "/home/ubuntu/scp_file")
             event.set_results({"output": stdout})
         else:
             event.fail("Unit is not leader")
