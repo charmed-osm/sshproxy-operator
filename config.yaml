@@ -32,3 +32,9 @@ options:
     type: int
     default: 4096
     description: "The number of bits to use for the SSH key."
+  apt-mirror:
+    type: string
+    description: "Apt mirror. Only used for K8s proxy charms with Juju version lower than 2.9.4"
+  security-apt-mirror:
+    type: string
+    description: "Security Apt mirror. Only used for K8s proxy charms with Juju version lower than 2.9.4"
