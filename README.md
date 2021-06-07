@@ -54,9 +54,19 @@ juju deploy ./sshproxy.charm
 ### Configuring the charm:
 
 First of all, set the username and hostname of the VNF:
+
 ```bash
 juju config sshproxy ssh-hostname=<hostname> \
                      ssh-username=<username>
+```
+
+#### Mirrors
+
+To workaround this [bug](https://bugs.launchpad.net/juju/+bug/1929399), use the following configurations of the charm to specify the urls of apt and security mirrors.
+
+```bash
+juju config sshproxy apt-mirror=<apt-mirror> \
+                     security-apt-mirror=<security-apt-mirror>
 ```
 
 ### Credentials
